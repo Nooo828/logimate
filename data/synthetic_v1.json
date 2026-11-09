@@ -1,0 +1,314 @@
+{
+  "dataset_id": "synthetic-v1",
+  "simulated": true,
+  "as_of": "2026-10-28T08:00:00Z",
+  "snapshots": [
+    {
+      "order": {
+        "order_id": "SIM-001",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-001",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-001",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-001",
+        "status": "delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-001",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-001",
+        "return_received_at": null,
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": {
+        "order_id": "SIM-001",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-001",
+        "return_status": "none",
+        "refund_status": "not_applicable",
+        "finance_error": null
+      }
+    },
+    {
+      "order": {
+        "order_id": "SIM-002",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-002",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-002",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-002",
+        "status": "return_delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-002",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-002",
+        "return_received_at": "2026-10-25T08:00:00Z",
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": {
+        "order_id": "SIM-002",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-002",
+        "return_status": "received",
+        "refund_status": "not_started",
+        "finance_error": "FINANCE_API_TIMEOUT"
+      }
+    },
+    {
+      "order": {
+        "order_id": "SIM-003",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-003",
+        "status": "shipped"
+      },
+      "logistics": {
+        "order_id": "SIM-003",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-003",
+        "status": "stalled",
+        "event_at": "2026-10-26T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-003",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-003",
+        "return_received_at": null,
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": {
+        "order_id": "SIM-003",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-003",
+        "return_status": "none",
+        "refund_status": "not_applicable",
+        "finance_error": null
+      }
+    },
+    {
+      "order": {
+        "order_id": "SIM-004",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-004",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-004",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-004",
+        "status": "delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-004",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-004",
+        "return_received_at": null,
+        "expected_stock": 10,
+        "actual_stock": 8
+      },
+      "aftersales": {
+        "order_id": "SIM-004",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-004",
+        "return_status": "none",
+        "refund_status": "not_applicable",
+        "finance_error": null
+      }
+    },
+    {
+      "order": {
+        "order_id": "SIM-005",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-005",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-005",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-005",
+        "status": "delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-005",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-005",
+        "return_received_at": null,
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": null
+    },
+    {
+      "order": {
+        "order_id": "SIM-006",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-006",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-006",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-006",
+        "status": "return_delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-006",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-006",
+        "return_received_at": "2026-10-25T08:00:00Z",
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": {
+        "order_id": "SIM-006",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-006",
+        "return_status": "in_transit",
+        "refund_status": "not_started",
+        "finance_error": null
+      }
+    },
+    {
+      "order": {
+        "order_id": "SIM-007",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-007",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-007",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-007",
+        "status": "delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-007",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-007",
+        "return_received_at": "2026-10-29T08:00:00Z",
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": {
+        "order_id": "SIM-007",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-007",
+        "return_status": "none",
+        "refund_status": "not_applicable",
+        "finance_error": null
+      }
+    },
+    {
+      "order": {
+        "order_id": "SIM-008",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-008",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-008",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-008",
+        "status": "return_delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-008",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-008",
+        "return_received_at": "2026-10-25T08:00:00Z",
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": {
+        "order_id": "SIM-008",
+        "tenant_id": "demo-a",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-008",
+        "return_status": "received",
+        "refund_status": "not_started",
+        "finance_error": null
+      }
+    },
+    {
+      "order": {
+        "order_id": "SIM-009",
+        "tenant_id": "demo-b",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "order-009",
+        "status": "delivered"
+      },
+      "logistics": {
+        "order_id": "SIM-009",
+        "tenant_id": "demo-b",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "logistics-009",
+        "status": "delivered",
+        "event_at": "2026-10-27T08:00:00Z"
+      },
+      "warehouse": {
+        "order_id": "SIM-009",
+        "tenant_id": "demo-b",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "warehouse-009",
+        "return_received_at": null,
+        "expected_stock": 10,
+        "actual_stock": 10
+      },
+      "aftersales": {
+        "order_id": "SIM-009",
+        "tenant_id": "demo-b",
+        "observed_at": "2026-10-28T08:00:00Z",
+        "record_id": "aftersales-009",
+        "return_status": "none",
+        "refund_status": "not_applicable",
+        "finance_error": null
+      }
+    }
+  ]
+}

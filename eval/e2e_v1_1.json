@@ -1,0 +1,140 @@
+{
+  "dataset_id": "synthetic-e2e-calibration-v1.1",
+  "simulated": true,
+  "split": "calibration",
+  "exposure": "Previously used acceptance scenarios; not an unseen holdout set.",
+  "cases": [
+    {
+      "case_id": "finance-recorded",
+      "query": "SIM-002退货入库后未退款，请核对四个业务域。",
+      "route": {
+        "action": "read",
+        "order_ids": [
+          "SIM-002"
+        ],
+        "domains": [
+          "order",
+          "logistics",
+          "warehouse",
+          "aftersales"
+        ]
+      },
+      "status": "answered",
+      "codes": [
+        "REFUND_OVERDUE",
+        "FINANCE_FAILURE_RECORDED"
+      ],
+      "needs_human": true
+    },
+    {
+      "case_id": "finance-no-cause",
+      "query": "SIM-008退货后没退款，请核对四个业务域的原因证据。",
+      "route": {
+        "action": "read",
+        "order_ids": [
+          "SIM-008"
+        ],
+        "domains": [
+          "order",
+          "logistics",
+          "warehouse",
+          "aftersales"
+        ]
+      },
+      "status": "answered",
+      "codes": [
+        "REFUND_OVERDUE"
+      ],
+      "needs_human": true
+    },
+    {
+      "case_id": "order-only",
+      "query": "查询SIM-001当前订单状态。",
+      "route": {
+        "action": "read",
+        "order_ids": [
+          "SIM-001"
+        ],
+        "domains": [
+          "order"
+        ]
+      },
+      "status": "answered",
+      "codes": [],
+      "needs_human": null
+    },
+    {
+      "case_id": "stock-only",
+      "query": "核对SIM-004对应SKU的预期和实盘库存。",
+      "route": {
+        "action": "read",
+        "order_ids": [
+          "SIM-004"
+        ],
+        "domains": [
+          "warehouse"
+        ]
+      },
+      "status": "answered",
+      "codes": [],
+      "needs_human": null
+    },
+    {
+      "case_id": "missing-domain",
+      "query": "请从四个业务域整体排查SIM-005。",
+      "route": {
+        "action": "read",
+        "order_ids": [
+          "SIM-005"
+        ],
+        "domains": [
+          "order",
+          "logistics",
+          "warehouse",
+          "aftersales"
+        ]
+      },
+      "status": "answered",
+      "codes": [
+        "MISSING_DATA"
+      ],
+      "needs_human": true
+    },
+    {
+      "case_id": "return-conflict",
+      "query": "请从四个业务域整体排查SIM-006退货状态冲突。",
+      "route": {
+        "action": "read",
+        "order_ids": [
+          "SIM-006"
+        ],
+        "domains": [
+          "order",
+          "logistics",
+          "warehouse",
+          "aftersales"
+        ]
+      },
+      "status": "answered",
+      "codes": [
+        "RETURN_CONFLICT"
+      ],
+      "needs_human": true
+    }
+  ],
+  "revision": {
+    "parent_sha256": "ff614c3fb63b063332529e11b8ad7090227a8404d42d0da3d6e46d59a739d5d4",
+    "case_id": "stock-only",
+    "field": "route.domains",
+    "old": [
+      "order",
+      "warehouse"
+    ],
+    "new": [
+      "warehouse"
+    ],
+    "reason": "Route prompt classifies SKU inventory as warehouse; executor adds order as a dependency. Post-hoc contract alignment, not a new model run.",
+    "contract_path": "prompts/route-v1.txt",
+    "contract_sha256": "d81c7188b4b6553a87d2dda386730466875dccc3740e5721931588081b42b71c"
+  }
+}

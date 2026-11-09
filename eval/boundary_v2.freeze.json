@@ -1,0 +1,13 @@
+{
+  "phase": "P8.4-frozen-inputs",
+  "protocol_sha256": "dd64f472a724eff6b720d41d5de89981f823cd545999359aadd65d7e1618affe",
+  "sources": {
+    "eval/boundary_v2.json": "f11541bce6dccb8bdd1738868ac54db07f5974db545f99e3f1ad904fc0b085d3",
+    "logimate/boundary_eval.py": "be91462e3d36157bff25e397129a25faaeb698bc552807ca032206aacb7b4b07",
+    "scripts/prepare_boundary_eval.py": "7c998ac5b1d9abf9bc66713d69d153fc71355c6e423d423665367f703077d06d",
+    "prompts/route-v1.txt": "d81c7188b4b6553a87d2dda386730466875dccc3740e5721931588081b42b71c",
+    "data/synthetic_v1.json": "70afa74c3bf7d1c71ba3b47d4904e37af22ec5a7f58b42df2d34f71a3e94c692"
+  },
+  "target_split_for_p85": "dev",
+  "holdout_execution_enabled": false
+}

@@ -1,0 +1,29 @@
+{
+  "services": {
+    "etcd": {
+      "image": "quay.io/coreos/etcd:v3.5.18",
+      "environment": {"ETCD_AUTO_COMPACTION_MODE":"revision","ETCD_AUTO_COMPACTION_RETENTION":"1000","ETCD_QUOTA_BACKEND_BYTES":"4294967296","ETCD_SNAPSHOT_COUNT":"50000"},
+      "command": "etcd -advertise-client-urls=http://etcd:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd",
+      "volumes":["etcd:/etcd"],
+      "healthcheck":{"test":["CMD","etcdctl","endpoint","health"],"interval":"10s","timeout":"10s","retries":12}
+    },
+    "minio": {
+      "image":"minio/minio:RELEASE.2024-05-28T17-19-04Z",
+      "environment":{"MINIO_ACCESS_KEY":"minioadmin","MINIO_SECRET_KEY":"minioadmin"},
+      "command":"minio server /minio_data",
+      "volumes":["minio:/minio_data"],
+      "healthcheck":{"test":["CMD","curl","-f","http://localhost:9000/minio/health/live"],"interval":"10s","timeout":"10s","retries":12}
+    },
+    "milvus": {
+      "image":"milvusdb/milvus:v2.6.1",
+      "command":["milvus","run","standalone"],
+      "security_opt":["seccomp:unconfined"],
+      "environment":{"MINIO_REGION":"us-east-1","ETCD_ENDPOINTS":"etcd:2379","MINIO_ADDRESS":"minio:9000"},
+      "volumes":["milvus:/var/lib/milvus"],
+      "ports":["127.0.0.1:19531:19530","127.0.0.1:9092:9091"],
+      "depends_on":{"etcd":{"condition":"service_healthy"},"minio":{"condition":"service_healthy"}},
+      "healthcheck":{"test":["CMD","curl","-f","http://localhost:9091/healthz"],"interval":"10s","start_period":"90s","timeout":"10s","retries":18}
+    }
+  },
+  "volumes":{"etcd":{},"minio":{},"milvus":{}}
+}

@@ -1,0 +1,24 @@
+FROM registry-1.docker.io/library/python:3.12-slim
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends libstdc++6 libgomp1 && rm -rf /var/lib/apt/lists/*
+COPY requirements-retrieval.lock ./
+RUN pip install --no-cache-dir -r requirements-retrieval.lock
+COPY logimate ./logimate
+COPY data ./data
+COPY prompts ./prompts
+COPY scripts/smoke_retrieval.py ./scripts/smoke_retrieval.py
+COPY scripts/smoke_milvus_api.py ./scripts/smoke_milvus_api.py
+COPY scripts/verify_mcp_graph.py ./scripts/verify_mcp_graph.py
+COPY scripts/verify_policy_graph.py ./scripts/verify_policy_graph.py
+COPY scripts/verify_policy_protocol.py ./scripts/verify_policy_protocol.py
+COPY scripts/smoke_policy_graph.py ./scripts/smoke_policy_graph.py
+COPY scripts/verify_resilient_local.py ./scripts/verify_resilient_local.py
+COPY scripts/retrieval_fault_worker.py ./scripts/retrieval_fault_worker.py
+COPY scripts/smoke_resilient.py ./scripts/smoke_resilient.py
+COPY scripts/probe_shared_graph.py ./scripts/probe_shared_graph.py
+COPY scripts/smoke_shared_graph.py ./scripts/smoke_shared_graph.py
+ENV LOGIMATE_RETRIEVAL_CACHE=/models LOGIMATE_LEXICAL_CACHE=/tmp/logimate-lexical
+USER 10001
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=3s CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=2)"
+CMD ["python", "-m", "uvicorn", "logimate.api:app", "--host", "0.0.0.0", "--port", "8000"]

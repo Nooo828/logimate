@@ -1,0 +1,12 @@
+.git
+.venv
+__pycache__
+.pytest_cache
+.env
+.env.*
+docs/evidence
+local-only
+private
+*.sqlite3*
+*.log
+*.zip

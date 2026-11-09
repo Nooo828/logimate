@@ -1,0 +1,17 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:${LOGIMATE_PORT:-8000}:8000"
+    environment:
+      LOGIMATE_DEMO_TOKEN: ${LOGIMATE_DEMO_TOKEN:-local-demo-token}
+      LOGIMATE_REVIEW_TOKEN: ${LOGIMATE_REVIEW_TOKEN:-local-review-token}
+      LOGIMATE_CASE_DB: /runtime/cases.sqlite3
+      LOGIMATE_NATIVE_REVIEW: "1"
+      LOGIMATE_ANALYSIS_REVIEW: "0"
+      LOGIMATE_RESILIENT_RETRIEVAL: "0"
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+    volumes:
+      - runtime-data:/runtime
+volumes:
+  runtime-data:

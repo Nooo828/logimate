@@ -1,0 +1,10 @@
+# Explicit local persistence for the standalone verification profile.
+# These are real Milvus components, not an in-memory search substitute.
+common:
+  storageType: local
+localStorage:
+  path: /var/lib/milvus/data/
+mq:
+  type: rocksmq
+rocksmq:
+  path: /var/lib/milvus/rdb_data

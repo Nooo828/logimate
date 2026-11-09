@@ -1,0 +1,31 @@
+{
+  "services": {
+    "milvus": {
+      "image": "milvusdb/milvus:v2.6.1",
+      "command": ["milvus", "run", "standalone"],
+      "security_opt": ["seccomp:unconfined"],
+      "environment": {
+        "ETCD_USE_EMBED": "true",
+        "ETCD_DATA_DIR": "/var/lib/milvus/etcd",
+        "ETCD_CONFIG_PATH": "/milvus/configs/embedEtcd.yaml",
+        "COMMON_STORAGETYPE": "local",
+        "DEPLOY_MODE": "STANDALONE"
+      },
+      "volumes": ["milvus-embedded:/var/lib/milvus"],
+      "configs": [
+        {"source": "embed-etcd", "target": "/milvus/configs/embedEtcd.yaml"},
+        {"source": "embedded-user", "target": "/milvus/configs/user.yaml"}
+      ],
+      "ports": ["127.0.0.1:19531:19530", "127.0.0.1:9092:9091"],
+      "healthcheck": {
+        "test": ["CMD", "curl", "-f", "http://localhost:9091/healthz"],
+        "interval": "10s", "start_period": "90s", "timeout": "10s", "retries": 18
+      }
+    }
+  },
+  "volumes": {"milvus-embedded": {}},
+  "configs": {
+    "embed-etcd": {"file": "./deploy/milvus-embed-etcd.yaml"},
+    "embedded-user": {"file": "./deploy/milvus-embed-user.yaml"}
+  }
+}

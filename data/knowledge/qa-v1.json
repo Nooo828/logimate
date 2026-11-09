@@ -1,0 +1,151 @@
+{
+  "dataset_id": "synthetic-retrieval-qa-v1",
+  "corpus_sha256": "30b121e9f0ea4500c600da0a4fc22831170f1288c1b188b3a7cd0f8a917c1228",
+  "split_note": "12 dev and 12 paraphrase holdout questions share policy topics; author-owned, not blind generalization.",
+  "cases": [
+    {
+      "id": "dev-refund",
+      "split": "dev",
+      "query": "退货进仓两天仍没退款应该检查什么",
+      "gold_section": "refund"
+    },
+    {
+      "id": "holdout-refund",
+      "split": "holdout",
+      "query": "退回商品已入库超过48小时但还没发起退钱，如何核对",
+      "gold_section": "refund"
+    },
+    {
+      "id": "dev-unknown",
+      "split": "dev",
+      "query": "退款状态unknown能直接算未退吗",
+      "gold_section": "unknown"
+    },
+    {
+      "id": "holdout-unknown",
+      "split": "holdout",
+      "query": "系统说退款不适用，是否能断定钱已退回",
+      "gold_section": "unknown"
+    },
+    {
+      "id": "dev-conflict",
+      "split": "dev",
+      "query": "仓库签收退件但是售后仍在途怎么办",
+      "gold_section": "conflict"
+    },
+    {
+      "id": "holdout-conflict",
+      "split": "holdout",
+      "query": "退货仓已确认收货而客服系统还显示运输中，应信哪个",
+      "gold_section": "conflict"
+    },
+    {
+      "id": "dev-stock",
+      "split": "dev",
+      "query": "预期库存和实盘数量不一致怎么办",
+      "gold_section": "stock"
+    },
+    {
+      "id": "holdout-stock",
+      "split": "holdout",
+      "query": "盘点少了两件，机器人能不能自动补账",
+      "gold_section": "stock"
+    },
+    {
+      "id": "dev-stalled",
+      "split": "dev",
+      "query": "物流停滞一天没有新轨迹如何排查",
+      "gold_section": "stalled"
+    },
+    {
+      "id": "holdout-stalled",
+      "split": "holdout",
+      "query": "包裹轨迹24小时没变，能认定丢失了吗",
+      "gold_section": "stalled"
+    },
+    {
+      "id": "dev-proof",
+      "split": "dev",
+      "query": "物流签收客户却说没有收到怎么办",
+      "gold_section": "proof"
+    },
+    {
+      "id": "holdout-proof",
+      "split": "holdout",
+      "query": "快递显示投递完成但买家否认收货需要什么材料",
+      "gold_section": "proof"
+    },
+    {
+      "id": "dev-compensation",
+      "split": "dev",
+      "query": "申请晚到赔付需要哪些材料",
+      "gold_section": "compensation"
+    },
+    {
+      "id": "holdout-compensation",
+      "split": "holdout",
+      "query": "运输晚于承诺送到，赔偿申请要准备什么证据",
+      "gold_section": "compensation"
+    },
+    {
+      "id": "dev-damage",
+      "split": "dev",
+      "query": "商品破损赔付需要什么证据",
+      "gold_section": "damage"
+    },
+    {
+      "id": "holdout-damage",
+      "split": "holdout",
+      "query": "外箱和货物都坏了，理赔要提交哪些照片",
+      "gold_section": "damage"
+    },
+    {
+      "id": "dev-split",
+      "split": "dev",
+      "query": "拆单发货一个包裹签收算整单完成吗",
+      "gold_section": "split"
+    },
+    {
+      "id": "holdout-split",
+      "split": "holdout",
+      "query": "同一订单分两票运输，其中一票已到能否判全部送达",
+      "gold_section": "split"
+    },
+    {
+      "id": "dev-sku",
+      "split": "dev",
+      "query": "SKU-AX7和SKU-AX70可以当同一种货吗",
+      "gold_section": "sku"
+    },
+    {
+      "id": "holdout-sku",
+      "split": "holdout",
+      "query": "商品编码只差末尾一个零，能合并盘点吗",
+      "gold_section": "sku"
+    },
+    {
+      "id": "dev-supplier",
+      "split": "dev",
+      "query": "供应商交期晚于采购需求如何处理",
+      "gold_section": "supplier"
+    },
+    {
+      "id": "holdout-supplier",
+      "split": "holdout",
+      "query": "供货商承诺送货日已超过需要日期，应核对哪些单据",
+      "gold_section": "supplier"
+    },
+    {
+      "id": "dev-human",
+      "split": "dev",
+      "query": "客户要求人工还应该继续自动退款吗",
+      "gold_section": "human"
+    },
+    {
+      "id": "holdout-human",
+      "split": "holdout",
+      "query": "证据不全或要改库存时助手应该如何处理",
+      "gold_section": "human"
+    }
+  ]
+}

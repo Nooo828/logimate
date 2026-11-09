@@ -1,0 +1,280 @@
+{
+  "corpus_id": "synthetic-policies-v1",
+  "simulated": true,
+  "source": "Independently authored synthetic policies; not supplied company manuals.",
+  "as_of": "2026-10-28",
+  "documents": [
+    {
+      "doc_id": "SIM-KB-refund",
+      "tenant_id": "demo-a",
+      "domain": "aftersales",
+      "title": "退货退款",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "refund",
+          "heading": "退款发起时限",
+          "body": "模拟规则：退货已经仓储入库且售后明确为未发起退款，达到48小时应核实退款队列。财务接口错误只能作为线索；无错误记录不能编造财务根因。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-unknown",
+      "tenant_id": "demo-a",
+      "domain": "aftersales",
+      "title": "退款状态",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "unknown",
+          "heading": "未知状态处理",
+          "body": "模拟规则：退款状态为unknown或not_applicable时，不能按未退款或已退款处理。先核实售后与支付记录，资料不足转人工。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-conflict",
+      "tenant_id": "demo-a",
+      "domain": "warehouse",
+      "title": "退货核对",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "conflict",
+          "heading": "跨系统冲突",
+          "body": "模拟规则：仓库显示退货已收货，售后仍显示在途，属于跨系统状态冲突。保留双方记录和同步时间，转人工核对，不能任选一方覆盖另一方。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-stock",
+      "tenant_id": "demo-a",
+      "domain": "warehouse",
+      "title": "库存盘点",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "stock",
+          "heading": "实盘差异",
+          "body": "模拟规则：同一SKU的预期库存与实盘数量不一致时记录库存差异，核对盘点时间、入库和出库流水。只读系统不得直接修改库存。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-stalled",
+      "tenant_id": "demo-a",
+      "domain": "logistics",
+      "title": "物流监控",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "stalled",
+          "heading": "轨迹停滞",
+          "body": "模拟规则：物流状态为stalled且24小时没有轨迹更新时标记停滞。核对承运商、最后轨迹时间与运单，未获得原因证据时不能声称丢件。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-proof",
+      "tenant_id": "demo-a",
+      "domain": "logistics",
+      "title": "签收核验",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "proof",
+          "heading": "签收争议",
+          "body": "模拟规则：客户称未收到但承运商显示签收时，应收集签收凭证、签收人及站点回执，保存争议证据并转人工。物流签收状态不自动证明客户本人收货。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-compensation",
+      "tenant_id": "demo-a",
+      "domain": "aftersales",
+      "title": "晚到赔付",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "compensation",
+          "heading": "申请材料",
+          "body": "模拟规则：晚到赔付申请需要订单承诺时间、实际送达时间和运单证据。\n| 材料 | 用途 |\n| 承诺时间 | 计算是否晚到 |\n| 送达回执 | 核对实际送达 |\n赔付金额由人工核实政策后决定，查询助手不执行打款。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-damage",
+      "tenant_id": "demo-a",
+      "domain": "aftersales",
+      "title": "破损赔付",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "damage",
+          "heading": "申请材料",
+          "body": "模拟规则：破损赔付申请需要外包装照片、商品破损照片、运单和验收记录。\n| 材料 | 用途 |\n| 包装照片 | 核对外箱 |\n| 商品照片 | 核对破损部位 |\n赔付金额需人工审核，不自动承诺固定赔偿比例。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-split",
+      "tenant_id": "demo-a",
+      "domain": "order",
+      "title": "订单履约",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "split",
+          "heading": "拆单发货",
+          "body": "模拟规则：一个订单拆成多个包裹时分别核对每个子包裹和运单。只有全部子包裹均满足送达条件才可判断整单履约完成，不能用一个包裹签收代表全单。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-sku",
+      "tenant_id": "demo-a",
+      "domain": "warehouse",
+      "title": "商品标识",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "sku",
+          "heading": "SKU匹配",
+          "body": "模拟规则：SKU-AX7与SKU-AX70是不同商品编码，检索和库存核对需精确匹配完整SKU。不得使用前缀命中替代完整商品身份。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-supplier",
+      "tenant_id": "demo-a",
+      "domain": "order",
+      "title": "采购协同",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "supplier",
+          "heading": "供应商延期",
+          "body": "模拟规则：供应商承诺交期晚于采购需求日期时记录供货延期风险，核对采购单、承诺交期和当前到货记录。没有交期或到货证据时不得编造延期天数。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-human",
+      "tenant_id": "demo-a",
+      "domain": "order",
+      "title": "人工介入",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "human",
+          "heading": "停止自动处理",
+          "body": "模拟规则：出现缺失证据、相互冲突的状态、用户主动要求人工或高风险写操作时，应停止自动结论或操作并转人工。当前查询服务只读，不能执行退款、赔付或改库存。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-foreign",
+      "tenant_id": "demo-b",
+      "domain": "aftersales",
+      "title": "退货退款",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "foreign",
+          "heading": "不可用于当前身份和时间",
+          "body": "退货入库48小时未退款的错误模拟政策：直接执行退款，不需要核实。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-expired",
+      "tenant_id": "demo-a",
+      "domain": "aftersales",
+      "title": "退货退款",
+      "revision": "v1",
+      "valid_from": "2025-01-01",
+      "valid_to": "2026-01-01",
+      "published": true,
+      "sections": [
+        {
+          "section_id": "expired",
+          "heading": "不可用于当前身份和时间",
+          "body": "退货入库48小时未退款的错误模拟政策：直接执行退款，不需要核实。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-future",
+      "tenant_id": "demo-a",
+      "domain": "aftersales",
+      "title": "退货退款",
+      "revision": "v1",
+      "valid_from": "2027-01-01",
+      "valid_to": null,
+      "published": true,
+      "sections": [
+        {
+          "section_id": "future",
+          "heading": "不可用于当前身份和时间",
+          "body": "退货入库48小时未退款的错误模拟政策：直接执行退款，不需要核实。"
+        }
+      ]
+    },
+    {
+      "doc_id": "SIM-KB-draft",
+      "tenant_id": "demo-a",
+      "domain": "aftersales",
+      "title": "退货退款",
+      "revision": "v1",
+      "valid_from": "2026-01-01",
+      "valid_to": null,
+      "published": false,
+      "sections": [
+        {
+          "section_id": "draft",
+          "heading": "不可用于当前身份和时间",
+          "body": "退货入库48小时未退款的错误模拟政策：直接执行退款，不需要核实。"
+        }
+      ]
+    }
+  ]
+}

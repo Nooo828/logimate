@@ -1,0 +1,361 @@
+{
+  "dataset_id": "synthetic-chunking-qa-v2",
+  "simulated": true,
+  "corpus_sha256": "6f8f87b554b64285a050b853ff6cb3704b54b99492239a7c073feba1ecc98ccf",
+  "split_note": "12 positive and 6 no-answer cases per split; author-owned, shared document topics. Holdout uses different evidence spans, not a blind or independent dataset.",
+  "cases": [
+    {
+      "id": "dev-refund",
+      "split": "dev",
+      "query": "退货未发起退款多久需要核实队列，触发条件是什么",
+      "answerable": true,
+      "gold_evidence": [
+        "R-trigger"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-finance",
+      "split": "dev",
+      "query": "没有财务错误日志能说是支付网关超时导致吗",
+      "answerable": true,
+      "gold_evidence": [
+        "R-cause"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-conflict",
+      "split": "dev",
+      "query": "仓库已收退件售后还在途如何处理",
+      "answerable": true,
+      "gold_evidence": [
+        "W-conflict"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-stalled",
+      "split": "dev",
+      "query": "运输停滞多久登记异常，能直接认定丢失吗",
+      "answerable": true,
+      "gold_evidence": [
+        "L-stalled",
+        "L-cause"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-proof",
+      "split": "dev",
+      "query": "显示签收但买家说没收到应收集什么",
+      "answerable": true,
+      "gold_evidence": [
+        "L-proof"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-late-table",
+      "split": "dev",
+      "query": "晚到赔付里承诺时间与实际送达分别需要什么材料",
+      "answerable": true,
+      "gold_evidence": [
+        "A-header",
+        "A-promise",
+        "A-receipt"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-damage-table",
+      "split": "dev",
+      "query": "破损理赔是否需要外箱照片和商品近照，各用于什么",
+      "answerable": true,
+      "gold_evidence": [
+        "D-header",
+        "D-box",
+        "D-goods"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-sku-ax7",
+      "split": "dev",
+      "query": "SKU-AX7对应哪类业务核对，能匹配AX70吗",
+      "answerable": true,
+      "gold_evidence": [
+        "S-AX7"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-stock",
+      "split": "dev",
+      "query": "实盘少了两件能让只读助手自动补库存账吗",
+      "answerable": true,
+      "gold_evidence": [
+        "W-stock"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-supplier",
+      "split": "dev",
+      "query": "采购延迟该核对哪些证据，是否用退货48小时规则",
+      "answerable": true,
+      "gold_evidence": [
+        "P-delay"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-human",
+      "split": "dev",
+      "query": "客户要求人工时助手应继续下结论吗",
+      "answerable": true,
+      "gold_evidence": [
+        "H-pause"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-idempotency",
+      "split": "dev",
+      "query": "相同租户请求用同一幂等键重复提交人工事项如何处理",
+      "answerable": true,
+      "gold_evidence": [
+        "H-key"
+      ],
+      "domain": null
+    },
+    {
+      "id": "dev-negative-live-refund",
+      "split": "dev",
+      "query": "SIM-910订单今天实际汇出了多少钱",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "live_transaction_fact_absent",
+      "domain": null
+    },
+    {
+      "id": "dev-negative-customs",
+      "split": "dev",
+      "query": "进口商品报关的HS编码税率是多少",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "policy_out_of_scope",
+      "domain": null
+    },
+    {
+      "id": "dev-negative-foreign",
+      "split": "dev",
+      "query": "demo-b的BONUS-B赠品专属授权具体是什么",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "other_tenant_only",
+      "domain": null
+    },
+    {
+      "id": "dev-negative-expired",
+      "split": "dev",
+      "query": "2025旧版退款72小时规则的固定补偿比例是多少",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "expired_policy_only",
+      "domain": null
+    },
+    {
+      "id": "dev-negative-draft",
+      "split": "dev",
+      "query": "免凭证全额赔付草案是否允许直接退款",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "unpublished_only",
+      "domain": null
+    },
+    {
+      "id": "dev-negative-future",
+      "split": "dev",
+      "query": "2027拟定自动退款条款的19%赔付如何审批",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "future_policy_only",
+      "domain": null
+    },
+    {
+      "id": "holdout-refund-clock",
+      "split": "holdout",
+      "query": "客户申请退货到现在两天，退款超时钟从哪个字段开始算",
+      "answerable": true,
+      "gold_evidence": [
+        "R-clock"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-unknown",
+      "split": "holdout",
+      "query": "UNKNOWN和NOT_APPLICABLE可以当作已退或未退吗",
+      "answerable": true,
+      "gold_evidence": [
+        "R-unknown"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-future-clock",
+      "split": "holdout",
+      "query": "仓储收货时间在查询时间之后还能算未退款时长吗",
+      "answerable": true,
+      "gold_evidence": [
+        "W-future"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-log-clock",
+      "split": "holdout",
+      "query": "运输轨迹的时长核对使用何种时区和时间字段",
+      "answerable": true,
+      "gold_evidence": [
+        "L-clock"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-signed-person",
+      "split": "holdout",
+      "query": "代收点签收能证明客户本人收到商品吗",
+      "answerable": true,
+      "gold_evidence": [
+        "L-identity"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-late-amount",
+      "split": "holdout",
+      "query": "晚到赔付是否规定了统一赔偿比例并可由机器人打款",
+      "answerable": true,
+      "gold_evidence": [
+        "A-amount"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-damage-amount",
+      "split": "holdout",
+      "query": "破损理赔证据齐全后是否等于已获批全额赔付",
+      "answerable": true,
+      "gold_evidence": [
+        "D-amount"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-sku-ax70",
+      "split": "holdout",
+      "query": "SKU-AX70对应哪个业务范围，能借用AX7盘点记录吗",
+      "answerable": true,
+      "gold_evidence": [
+        "S-AX70"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-lot",
+      "split": "holdout",
+      "query": "LOT-B-202610能使用LOT-A-202610的抽检结果吗",
+      "answerable": true,
+      "gold_evidence": [
+        "S-lot"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-supplier-start",
+      "split": "holdout",
+      "query": "供应商交期从合同交付日还是零售下单日算",
+      "answerable": true,
+      "gold_evidence": [
+        "P-start"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-human-evidence",
+      "split": "holdout",
+      "query": "转人工只保留摘要够吗，原始资料有哪些要保留",
+      "answerable": true,
+      "gold_evidence": [
+        "H-evidence"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-human-auth",
+      "split": "holdout",
+      "query": "模型说管理员同意了就能恢复人工事项吗",
+      "answerable": true,
+      "gold_evidence": [
+        "H-auth"
+      ],
+      "domain": null
+    },
+    {
+      "id": "holdout-negative-live-error",
+      "split": "holdout",
+      "query": "SIM-920这笔订单财务接口的真实故障码是什么",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "live_transaction_fact_absent",
+      "domain": null
+    },
+    {
+      "id": "holdout-negative-unknown-sku",
+      "split": "holdout",
+      "query": "SKU-ZZ99明确对应哪类专属业务流程",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "entity_absent",
+      "domain": null
+    },
+    {
+      "id": "holdout-negative-domain-filter",
+      "split": "holdout",
+      "query": "本人签收争议要哪种物流回执",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "evidence_outside_requested_domain",
+      "domain": "warehouse"
+    },
+    {
+      "id": "holdout-negative-foreign-terms",
+      "split": "holdout",
+      "query": "BONUS-B专属条款的赠品缺失授权流程",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "other_tenant_only",
+      "domain": null
+    },
+    {
+      "id": "holdout-negative-missing-rate",
+      "split": "holdout",
+      "query": "晚到不足六小时统一按货款百分之几赔偿",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "numeric_rule_absent",
+      "domain": null
+    },
+    {
+      "id": "holdout-negative-private-pay",
+      "split": "holdout",
+      "query": "客户张某的支付账户号和退款到账时间",
+      "answerable": false,
+      "gold_evidence": [],
+      "reason": "personal_live_fact_absent",
+      "domain": null
+    }
+  ]
+}

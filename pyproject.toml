@@ -1,0 +1,15 @@
+[project]
+name = "logimate-reproduction"
+version = "0.1.0"
+description = "Independent LogiMate reproduction using explicitly synthetic data"
+requires-python = ">=3.12"
+dependencies = ["fastapi==0.162.0", "uvicorn==0.54.0", "langgraph==1.2.18", "mcp==2.3.0"]
+
+[project.optional-dependencies]
+retrieval = ["fastembed==0.9.1", "jieba==0.42.1"]
+checkpoint = ["langgraph-checkpoint-sqlite==3.1.2", "aiosqlite==0.21.0", "sqlite-vec==0.1.6"]
+test = ["pytest==9.2.0", "httpx==0.28.1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
